@@ -230,6 +230,7 @@ body {
   margin-left: 45px;
 }
 .feature-thumb {
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,7 +274,24 @@ body {
 }
 
 .what-we-do .item {
+  position: relative;
   margin: 0 15px;
+}
+
+.what-we-do-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 27px 75px;
+
+  color: var(--primary-white-color);
+  background-color: #2F303ACC;;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1429;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* team */
@@ -472,6 +490,21 @@ body {
    0px 4px 4px 0px #0000000F,
    0px 1px 1px 0px #0000001F;
 }
+.card-thumb {
+  position: relative;
+}
+.card-guide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+
+  color: var(--primary-white-color);
+  font-size: 18px;
+  line-height: 1.5556;
+
+  background-color: var(--accent-color);
+}
 .card-title {
   margin-bottom: 4px;
 
@@ -567,7 +600,7 @@ body {
 .footer .logo {
   color: var(--primary-white-color);
 }
-.modal {
+/* .modal {
   position: fixed;
   z-index: 20;
   top: 0;
@@ -592,4 +625,4 @@ body {
   box-shadow: 0 2px 1px 0 #00000033,
   0 1px 1px 0 #00000024,
   0 1px 3px 0 #0000001F;
-}
+} */
