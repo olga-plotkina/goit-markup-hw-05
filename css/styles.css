@@ -109,18 +109,20 @@ body {
   margin-left: 93px;
 }
 
-.site-nav .item+.item {
-  margin-left: 50px;
-}
 
 .site-nav .link {
+  position: relative;
   display: block;
+
+  padding: 32px 25px;
   
   color: var(--title-text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
   white-space: nowrap;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -131,7 +133,18 @@ body {
 .site-nav .link.current{
   color: var(--accent-color);
 }
+.current::after {
+content: "";
+position: absolute;
+bottom: -1px;
+left: 50%;
+transform: translate(-50%);
 
+width: 48px;
+height: 4px;
+
+background-image: url(../images/hover.svg);
+}
 /* head-contacts */
 
 .head-contacts {
@@ -154,6 +167,8 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   white-space: nowrap;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .head-contacts .link:hover,
@@ -347,6 +362,9 @@ body {
   color: var(--primary-icon-color);
   background-color: var(--primary-white-color);
   border-radius: 50%;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social:hover,
@@ -378,6 +396,9 @@ body {
   border: 1px solid var(--primary-icon-color);
   border-radius: 4px;
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-link:hover,
 .clien-link:focus {
@@ -408,9 +429,10 @@ body {
   font-size: 16px;
   line-height: 1.63;
 
-
-
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 .button:hover,
@@ -483,6 +505,8 @@ body {
 .card {
   display: block;
   cursor: pointer;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card:hover,
 .card:focus {
@@ -492,6 +516,7 @@ body {
 }
 .card-thumb {
   position: relative;
+  overflow: hidden;
 }
 .card-guide {
   position: absolute;
@@ -504,6 +529,17 @@ body {
   line-height: 1.5556;
 
   background-color: var(--accent-color);
+  opacity: 0;
+  transform: translateY(100%);
+
+  transition: opasity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover .card-guide,
+.card:focus .card-guide {
+  opacity: 0.9;
+  transform: translateY(0);
+
 }
 .card-title {
   margin-bottom: 4px;
@@ -561,6 +597,10 @@ body {
   margin-top: 20px;
 }
 
+.footer .link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer .link:hover,
 .footer .link:focus {
   color: var(--accent-color);
@@ -591,38 +631,49 @@ body {
 }
 .join-to-us .social {
   color: var(--primary-white-color);
-  background-color: rgba(255, 255, 255, 0.1);;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.join-to-us .social:hover {
+.join-to-us .social:hover,
+.join-to-us .social:focus {
   background-color: var(--accent-color);
 }
 
 .footer .logo {
   color: var(--primary-white-color);
 }
-/* .modal {
+.backdrop {
   position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.modal-inner {
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
   position: absolute;
   z-index: 30;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   max-width: 528px;
   width: 100%;
   max-height: 581px;
   height: 80%;
+
   background-color: var(--primary-white-color);
   box-shadow: 0 2px 1px 0 #00000033,
   0 1px 1px 0 #00000024,
   0 1px 3px 0 #0000001F;
-} */
+}
