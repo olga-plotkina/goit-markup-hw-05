@@ -134,7 +134,7 @@ body {
   color: var(--accent-color);
 }
 .current::after {
-content: "";
+content: '';
 position: absolute;
 bottom: -1px;
 left: 50%;
@@ -645,6 +645,9 @@ background-image: url(../images/hover.svg);
 .footer .logo {
   color: var(--primary-white-color);
 }
+
+/* модальное окно */
+
 .backdrop {
   position: fixed;
   z-index: 20;
@@ -663,6 +666,7 @@ background-image: url(../images/hover.svg);
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.9);
@@ -682,8 +686,21 @@ background-image: url(../images/hover.svg);
   box-shadow: 0 2px 1px 0 #00000033,
   0 1px 1px 0 #00000024,
   0 1px 3px 0 #0000001F;
+  border-radius: 4px;
 
   transform: translate(-50%, -50%) scale(1);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-button {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 8px 8px 8px auto;
+
+  background: var(--primary-white-color) url(../images/close-button.svg) no-repeat 50% 50%;
+  border: 1px solid #0000001A;
+  border-radius: 50%;
+
+  cursor: pointer;
 }
